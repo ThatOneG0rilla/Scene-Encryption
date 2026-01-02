@@ -1,64 +1,13 @@
 # Introduction
+What This Does:
+This is a tool that makes it harder for people using tools such as UABE or UABEA to edit properties of your scene. It does that by changing the default name of objects on your scene to random ones when you build your game, while ensuring to not scramble certain objects, to make sure that the scene stays intact and working.
+
 Steps:
-1. Import the package.
-2. Drag prefab into scene, then your done!
-
-The package offers a range of features, including:
-- Easy usage of every single XR input
-- Subscribing (Meaning you dont need to run an input check every frame)
-
-## Script Usage
-### `Inputs`
-- Gets an input from a player
-Example:
-```csharp
-GDHInputs.IsTrigger(ControllerHand.Left);  // Left trigger pressed
-GDHInputs.IsGrip(ControllerHand.Right);  // Right grip pressed
-GDHInputs.IsPrimaryButton(ControllerHand.Left);  // X/A button
-GDHInputs.IsSecondaryButton(ControllerHand.Right);  // Y/B button
-GDHInputs.IsThumbstickPressed(ControllerHand.Left);  // Stick click
-GDHInputs.TriggerValue(ControllerHand.Right);  // Right trigger pressure (0-1)
-GDHInputs.GripValue(ControllerHand.Left);  // Left grip pressure (0-1)
-GDHInputs.ThumbstickAxis(ControllerHand.Left);  // Returns Vector2 of stick position
-GDHInputs.HandPosition(ControllerHand.Right);  // Controller world position
-GDHInputs.HandRotation(ControllerHand.Left);  // Controller rotation (Euler angles)
-GDHInputs.HandVelocity(ControllerHand.Right);  // Movement velocity
-GDHInputs.HandAngularVelocity(ControllerHand.Left);  // Rotation velocity
-GDHInputs.SendHapticVibration(ControllerHand.Right, 0.5f, 0.3f);  // (Hand, intensity, duration)
-```
-
-### `Subscription`
-- Subscribes to an input
-Example:
-```csharp
-// Subscribe
-GDHInputs.Subscribe(
-    ControllerHand.Left,
-    BoolInputType.TriggerPressed,
-    () => { /* On pressed */ },
-    () => { /* On released */ }
-);
-
-// Unsubscribe
-GDHInputs.Unsubscribe(ControllerHand.Right, BoolInputType.GripPressed);
-```
-
-### `Raw Code (No other methods)`
-- Directly uses helper methods, instead of using anything from Inputs
-Example:
-```csharp
-GDHInputs.GetBoolInput(ControllerHand.Left, BoolInputType.PrimaryButtonPressed);
-GDHInputs.GetFloatInput(ControllerHand.Right, FloatInputType.TriggerAmount);
-GDHInputs.GetVector2Input(ControllerHand.Left, Vector2InputType.ThumbstickPosition);
-GDHInputs.GetVector3Input(ControllerHand.Right, Vector3InputType.HandPosition);
-```
-
-### `Controller Checks`
-- Check if controller is connected
-Example:
-```csharp
-GDHInputs.GetBoolInput(ControllerHand.Left, BoolInputType.HandIsValid);  // Check if controller connected
-```
+- Import Package
+- Open settings (Tools - Scene Encryption)
+- Change Ignore Layer to a new layer
+- Make sure that objects that should not be encrypted have that layer
+- Then you are done! You can change settings if you want but the default ones work just as well.
 
 # Info
-I will be posting future versions in [Discord](https://discord.gg/gorillasdevhub). Join to get updates.
+I will be posting future versions in [Discord](https://discord.gg/phF9d79G). Join to get updates.
